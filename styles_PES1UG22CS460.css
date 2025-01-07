@@ -1,11 +1,4 @@
-/********************* NOTES ************************
-The basic resets below allow you to create your own styling
-without having to fight some of the most annoying built-in 
-agent user styles.
-****************************************************/
-
 /************* Basic Resets ***************/
-
 h1, h2, h3, h4, p, ul, ol, blockquote {
     margin: 0;
     padding: 0;
@@ -28,36 +21,22 @@ img {
 
 /************ End CSS Reset  *************/
 
-
-/********************* NOTES ************************
-Below are the updated colors. These replace the original hex codes.
-****************************************************/
-
-/*********** Colors ***********
-
-primary = #FF6F61;
-secondary = #6B5B95;
-accent = #88B04B;
-text default = #333333;
-
-********************************/
-
+/*********** Google Fonts - Railway and Oswald ************/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Raleway:wght@300;400;600&display=swap');
 
 /************* Basic Page Rules ************/
-
 body {
-    font-family: 'Verdana', sans-serif;
-    color: #333333;
-    background: #1F1F1F;
+    font-family: 'Raleway', sans-serif;
+    color: #212121; /* Dark Gray for text */
+    background: #FFFFFF; /* Clean white background for contrast */
     line-height: 1.6;
 }
 
 /************* Typography ************/
-
 h1, h2, h3, h4, nav { 
-    font-family: 'Arial Black', sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-weight: bold; 
-    color: #6B5B95;
+    color: #33A1FF; /* Bright Blue */
 }
 
 h1 {
@@ -86,7 +65,7 @@ p {
 }
 
 a { 
-    color: #88B04B; 
+    color: #FFC300; /* Golden Yellow for links */
 }
 
 .social { 
@@ -98,15 +77,14 @@ a {
 }
 
 /****************** Grid ******************/
-
-.primary { background: #FF6F61; }
-.secondary { background: #6B5B95; }
+.primary { background: #FF5733; } /* Bright Red for primary */
+.secondary { background: #33A1FF; } /* Bright Blue for secondary */
+.accent { background: #FFC300; } /* Golden Yellow for accent */
 
 /****************** Header and Main Navigation ****************/
-
 header {
     padding: 30px;
-    background: #FF6F61;
+    background: #FF5733; /* Bright Red background for header */
     color: #FFFFFF;
 }
 
@@ -120,10 +98,12 @@ header .wrapper {
 .logo-container {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 
 #logo {
     margin-left: 20px;
+    max-width: 150px;
 }
 
 #mainnav {
@@ -138,8 +118,8 @@ header .wrapper {
 #mainnav ul li a {
     display: block;
     color: #FFFFFF;
-    background: #88B04B;
-    border-left: 2px solid #6B5B95;
+    background: #FFC300; /* Golden Yellow for menu items */
+    border-left: 2px solid #33A1FF; /* Bright Blue border */
     padding: 10px 30px;
     font-size: 1.2em;
     border-radius: 5px;
@@ -150,7 +130,6 @@ header .wrapper {
 }
 
 /***************** Section Specific Rules *****************/
-
 #work {
     background: #FFFFFF;
     padding: 30px;
@@ -163,11 +142,11 @@ header .wrapper {
     border-radius: 8px;
 }
 
-.featured, .projects, #page-template #work section {
+.featured, .projects {
     margin-bottom: 50px;
 }
 
-#about-contact, .additional-projects {
+#about-contact {
     padding: 30px;
 }
 
@@ -178,10 +157,17 @@ header .wrapper {
 footer {
     padding: 30px;
     margin-bottom: 50px;
-    background: #FF6F61;
+    background: #FF5733; /* Bright Red footer */
     color: #FFFFFF;
 }
 
+.wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/***************** Responsive Design *****************/
 @media only screen and (min-width: 650px) {
     #work {
         padding: 20px 15px;
@@ -191,31 +177,10 @@ footer {
         padding: 0 15px;
     }
 
-    .projects, #page-template #work section {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .projects article, #page-template #work section article {
-        width: 48%;
-    }
-
-    .additional-projects .wrapper {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .additional-projects h2 {
-        flex-basis: 100%;
-    }
-
-    .additional-projects article {
-        width: 48%;
-        padding: 0 15px;
-    }
-
-    #about-contact {
-        padding: 0;
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 
     #about-contact .wrapper {
@@ -228,7 +193,6 @@ footer {
     #about-contact .profile-photo {
         flex: 1;
         padding: 0 15px;
-        width: 100%;
     }
 
     #about-contact article {
@@ -247,14 +211,15 @@ footer {
 @media only screen and (min-width: 768px) {
     .featured {
         display: flex;
+        gap: 30px;
     }
 
     .featured article {
         flex: 1;
     }
 
-    .additional-projects article {
-        width: 23%;
+    .projects {
+        grid-template-columns: repeat(4, 1fr);
     }
 
     #about-contact .wrapper {
@@ -267,17 +232,23 @@ footer {
     }
 }
 
-@media only screen and (min-width: 1040px) {
-    .wrapper {
-        width: 1080px;
-        margin: auto;
-    }
-
+@media only screen and (max-width: 767px) {
     header .wrapper {
-        padding: 0 20px;
+        flex-direction: column;
+        text-align: center;
     }
 
-    .projects article {
-        width: 23%;
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    #mainnav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mainnav ul li a {
+        margin: 5px 0;
+        border-left: none;
     }
 }
