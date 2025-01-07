@@ -1,0 +1,254 @@
+/************* Basic Resets ***************/
+h1, h2, h3, h4, p, ul, ol, blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+nav ul, nav ol {
+    list-style-type: none;
+}
+
+/******** Additional resets *********/
+a { text-decoration: none; }
+
+img {
+    display: block;
+    max-width: 100%; 
+    height: auto;
+}
+
+* { box-sizing: border-box; }
+
+/************ End CSS Reset  *************/
+
+/*********** Google Fonts - Railway and Oswald ************/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Raleway:wght@300;400;600&display=swap');
+
+/************* Basic Page Rules ************/
+body {
+    font-family: 'Raleway', sans-serif;
+    color: #212121; /* Dark Gray for text */
+    background: #FFFFFF; /* Clean white background for contrast */
+    line-height: 1.6;
+}
+
+/************* Typography ************/
+h1, h2, h3, h4, nav { 
+    font-family: 'Oswald', sans-serif;
+    font-weight: bold; 
+    color: #33A1FF; /* Bright Blue */
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 2.2em;
+    margin-bottom: 0.8em;
+}
+
+h3 { 
+    font-size: 1.8em;
+    margin-bottom: 0.6em;
+}
+
+h4 { 
+    font-size: 1.5em;
+    margin-bottom: 0.4em;
+}
+
+p {
+    line-height: 1.8;
+    margin-bottom: 1.5em;
+}
+
+a { 
+    color: #FFC300; /* Golden Yellow for links */
+}
+
+.social { 
+    font-size: 2em; 
+}
+
+.centered { 
+    text-align: center; 
+}
+
+/****************** Grid ******************/
+.primary { background: #FF5733; } /* Bright Red for primary */
+.secondary { background: #33A1FF; } /* Bright Blue for secondary */
+.accent { background: #FFC300; } /* Golden Yellow for accent */
+
+/****************** Header and Main Navigation ****************/
+header {
+    padding: 30px;
+    background: #FF5733; /* Bright Red background for header */
+    color: #FFFFFF;
+}
+
+header .wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#logo {
+    margin-left: 20px;
+    max-width: 150px;
+}
+
+#mainnav {
+    margin-bottom: 10px;
+}
+
+#mainnav ul {
+    display: flex;
+    justify-content: center;
+}
+
+#mainnav ul li a {
+    display: block;
+    color: #FFFFFF;
+    background: #FFC300; /* Golden Yellow for menu items */
+    border-left: 2px solid #33A1FF; /* Bright Blue border */
+    padding: 10px 30px;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+#mainnav ul li:first-of-type a {
+    border: none;
+}
+
+/***************** Section Specific Rules *****************/
+#work {
+    background: #FFFFFF;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+#work img, .additional-projects img {
+    width: 100%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.featured, .projects {
+    margin-bottom: 50px;
+}
+
+#about-contact {
+    padding: 30px;
+}
+
+#about-contact img {
+    margin-bottom: 15px;
+}
+
+footer {
+    padding: 30px;
+    margin-bottom: 50px;
+    background: #FF5733; /* Bright Red footer */
+    color: #FFFFFF;
+}
+
+.wrapper {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/***************** Responsive Design *****************/
+@media only screen and (min-width: 650px) {
+    #work {
+        padding: 20px 15px;
+    }
+
+    #work article, h2 {
+        padding: 0 15px;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    #about-contact .wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 20px 15px;
+    }
+
+    #about-contact .profile-photo {
+        flex: 1;
+        padding: 0 15px;
+    }
+
+    #about-contact article {
+        padding: 0 15px;
+    }
+
+    #about-contact article:first-of-type {
+        flex: 2;
+    }
+
+    #about-contact article:last-of-type {
+        flex-basis: 100%;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .featured {
+        display: flex;
+        gap: 30px;
+    }
+
+    .featured article {
+        flex: 1;
+    }
+
+    .projects {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    #about-contact .wrapper {
+        flex-wrap: nowrap;
+    }
+
+    #about-contact article:last-of-type {
+        flex: 2;
+        flex-basis: 0;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    header .wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo-container {
+        margin-bottom: 20px;
+    }
+
+    #mainnav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #mainnav ul li a {
+        margin: 5px 0;
+        border-left: none;
+    }
+}
